@@ -37,22 +37,6 @@ $(document).ready(function(){
   $.each(data, function(key, value){
     // console.log(key, value);
 
-    // var timeDifference = moment().diff(moment.unix(trainFirst), "minutes");
-    // var minutesAway = trainFrequency - (timeDifference % trainFrequency);
-    // var nextTrain = moment().add(minutesAway, "minutes").format('HH:mm');
-
-    // var timeDifference = moment().diff(moment.unix(firstTime), "minutes");
-    // var minutesAway = frequency-(timeDifference%frequency);
-    // var nextTrain = moment().add(minutesAway, "minutes").format('HH:mm');
-
-    // console.log(timeDifference);
-    // console.log(minutesAway);
-    // console.log(nextTrain);
-
-    // console.log('freq2',freq2);
-    // console.log('minsaway= ', minutesAway);
-    // console.log('next=', nextTrain);
-  
     var newRow = $('<tr>');
     
     newRow.addClass(".newStuff")
@@ -72,8 +56,8 @@ $(document).ready(function(){
     console.log('frequency', frequency);
     console.log('firstTime', firstTime);
 
-    var newTime=moment(new Date(firstTime));
-    console.log('newTime:', newTime);
+    // var newTime=moment(new Date(firstTime));
+    // console.log('newTime:', newTime);
 
     var timeDifference = moment().diff(moment.unix(firstTime), "minutes");
     var minutesAway = frequency-(timeDifference%frequency);
@@ -96,8 +80,8 @@ $(document).ready(function(){
     var nextTrain;
     var minsToArrival;
 
-    var firstArrivalToCurrent = moment(time2).diff(moment(), "hours")*(-1);
-    console.log(firstArrivalToCurrent);
+    // var firstArrivalToCurrent = moment(time2).diff(moment(), "minutes")*(-1);
+    // console.log(firstArrivalToCurrent);
 
 
   });
@@ -136,62 +120,3 @@ return false;
 
 });
 
-// 1) how do i use moment js to add the frequency variable to the current time(in order to get the next train time)?
-
-// 2) how do i use moment js to subtract the current time from the next train time (in order to get the mins away)?
-
-// 3) how do i make the above 2 happen for each entry and display it to the page?
-
-// 4)how do i get the form fields to clear when i click the submit button? This was working, but stopped at some point.
-
-// 5)how do i delete data with a button from the front end and database?
-
-  
-
-// // Determine when the next train arrives.
-// var timeDifference = moment().diff(moment.unix(trainFirst), "minutes");
-// var minutesAway = trainFrequency - (timeDifference % trainFrequency);
-// var nextTrain = moment().add(minutesAway, "minutes").format('HH:mm');
-
-
-    // var convertedDate = moment(new Date(time1));
-    // console.log('test1: '+ convertedDate);
-
-//add data attribute to reference the object key;
-    //pass that key into a firebase .remove() function
-    
-
-    //for moment subtraction use diff
-
-//   var converted = moment(new Date(value.freq2)).format('X');
-// console.log(converted);
-
-// $('.newStuff').on('click', function(){
-//   $('.newStuff').empty();
-
-// });
-
-// var timeDifference = moment().diff(moment.unix(trainFirst), "minutes");
-// var minutesAway = trainFrequency - (timeDifference % trainFrequency);
-// var nextTrain = moment().add(minutesAway, "minutes").format('HH:mm');
-  
-// var calc function(){
-//   var timeDifference = moment().diff(moment.unix(time2), "minutes");
-//   var minutesAway = freq2-(timeDifference%freq2);
-//   console.log('freq2',freq2);
-//   var nextTrain = moment().add(minutesAway, "minutes").format('HH:mm');
-// console.log('minsaway= '+minutesAway);
-// console.log('next=', nextTrain);
-  // $('#nextTime').text(nextTrain);
-  // $('#minsAway').text(minutesAway);
-
-
-  // var nextArrival1;
-
-  //  nextArrival = moment(new Date())+$("#freq2").val().trim();
-
-
-  //   nextArrival1=moment(nextArrival).format('MMMM Do YYYY, HH:mm:ss');
-
-  // console.log('next:' + nextArrival);
-  //   console.log('next1:' + nextArrival1);
