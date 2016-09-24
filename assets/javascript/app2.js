@@ -1,5 +1,4 @@
-// console.log('hello')
- var config = {
+var config = {
   apiKey: "AIzaSyDhedaxXi6_taQ3k5GThqOKM-VicYZ9N-A",
   authDomain: "train-3db07.firebaseapp.com",
   databaseURL: "https://train-3db07.firebaseio.com",
@@ -22,21 +21,16 @@ $(document).ready(function(){
   update();
   setInterval(update, 1000);
 
-
   var test =moment().add(30, 'm');
-
-
-  // console.log(test);
 
   var database = firebase.database();
   database.ref().on("value", function(snapshot) {
 
   var data = snapshot.val();
   $('.newStuff').empty();
-  // console.log('testtest')
-  $.each(data, function(key, value){
-    // console.log(key, value);
 
+  $.each(data, function(key, value){
+    
     var newRow = $('<tr>');
     
     newRow.addClass(".newStuff")
@@ -45,47 +39,48 @@ $(document).ready(function(){
     var dest1 = $('<td>');  
     var freq1 = $('<td>');
     var time1 = $('<td>');
+    var nextTrain1 = $('<td>');
+    var minutesAway1 = $('<td>');
+    var remove1 = $('<td>');
 
-    name1.text(value.name)
-    dest1.text(value.dest)
-    freq1.text(value.freq)
-    time1.text(value.time)
+    console.log('next1 ', nextTrain1)
 
     var frequency=value.freq;
     var firstTime=value.time;
     console.log('frequency', frequency);
     console.log('firstTime', firstTime);
 
-    // var newTime=moment(new Date(firstTime));
-    // console.log('newTime:', newTime);
+    console.log('firstTime type:', typeof firstTime);
 
-    var timeDifference = moment().diff(moment.unix(firstTime), "minutes");
+    var myMoment = moment(firstTime, "HH:mm");
+    myMoment.format("HH:mm");
+    console.log('myMoment: ', myMoment);
+    console.log('myMoment type: ', typeof myMoment);
+
+    var timeDifference = moment().diff(moment.unix(myMoment*(-1)), "minutes");
     var minutesAway = frequency-(timeDifference%frequency);
     var nextTrain = moment().add(minutesAway, "minutes").format('HH:mm');
 
-    console.log(timeDifference);
-    console.log(minutesAway);
-    console.log(nextTrain);
+    name1.text(value.name);
+    dest1.text(value.dest);
+    freq1.text(value.freq);
+    time1.text(value.time);
+    nextTrain1.text(nextTrain);
+    minutesAway1.text(minutesAway);
+    
 
+    console.log('timeDifference: ', timeDifference);
+    console.log('minsAway: ', minutesAway);
+    console.log('nextTrain: ', nextTrain);
 
     newRow.append(name1)
     newRow.append(dest1)
     newRow.append(freq1)
-    newRow.append(nextTrain)
-    newRow.append(minutesAway)
-    
+    newRow.append(nextTrain1)
+    newRow.append(minutesAway1)
 
     $('#table').append(newRow);
-
-    var nextTrain;
-    var minsToArrival;
-
-    // var firstArrivalToCurrent = moment(time2).diff(moment(), "minutes")*(-1);
-    // console.log(firstArrivalToCurrent);
-
-
   });
-
 
  });
 
@@ -95,7 +90,6 @@ $(document).ready(function(){
     var dest2 = $("#dest2").val().trim();
     var time2 = $("#time2").val().trim();
     var freq2 = $("#freq2").val().trim();
-
     
   $('#tbody').text('');
 
@@ -103,20 +97,12 @@ $(document).ready(function(){
       name:name2,
       dest:dest2,
       time:time2,
-      freq:freq2
+      freq:freq2,
     })
 
-$('#form').reset();
+  $('#form').reset();
 
-
-
-
-
-return false;
-
-})
-
-
-
+  return false;
+  })
 });
 

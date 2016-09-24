@@ -22,12 +22,12 @@ body {
   height: 120px;
   font-size: 40px;
   background-color: gray;
+  opacity: .95;
   color: silver;
   display: inline-block;
   float: right;
   text-align: center;
   border-radius:0px 0px 0px 20px;
-  /*margin-right: 100px;*/
 }
 
 .table {
@@ -35,8 +35,6 @@ body {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
-  /*border-radius: 10px 10px 10px 10px;*/
-
 }
 
 #add{
@@ -45,12 +43,7 @@ body {
   height: 350px;
   margin-left: auto;
   margin-right: auto;
-
 }
-
-/*#form {
-
-}*/
 
 .form-control {
   width:95%;
@@ -71,14 +64,11 @@ label {
   font-size: 30px;
   text-align: center;
   border-radius: 5px 5px 5px 5px;
-  text-align: left;
+  text-align: center;
   line-height: 80%;
-
+  padding: 0px;
 }
-
 /*http://hd.wallpaperswide.com/thumbs/ghost_train-t2.jpg*/
-
-
 
 #table {
   border-style: solid;
